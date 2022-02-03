@@ -5,7 +5,7 @@ import Web from "./routes/routes";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Header />
         <Web />

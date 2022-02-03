@@ -32,7 +32,7 @@ export default function Example() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-centre sm:justify-between">
                 <div className="flex-shrink-0 flex items-center">
-                  <h3 className='text-white font-bold cursor-pointer'>E-Commerce</h3>
+                  <h3 className='text-white text-2xl font-bold cursor-pointer'>E-Commerce</h3>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
