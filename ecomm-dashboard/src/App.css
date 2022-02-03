@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+.navbar-wrapper a {
+  padding: 0 10px;
+  text-decoration: none;
+  float: right;
+  color: #FEAE47;
+}
+
+.navbar-wrapper a:hover{
+  color: #FEAE47;
+  font-weight: bolder;
+}
+.navbar-brand {
+  color: #56BDE6;
+}
+
+/* 
+  #FEAE47 - orange
+  #56BDE6 - blue
+  #FFFFFF - white
+  #434852 - black
+ */
