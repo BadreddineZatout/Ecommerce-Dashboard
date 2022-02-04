@@ -1,18 +1,22 @@
-import { Disclosure } from '@headlessui/react'
-import {  MenuIcon, XIcon } from '@heroicons/react/outline'
+import { useSelector } from "react-redux";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Products', href: '/products', current: false },
-  { name: 'Login', href: '/login', current: false },
-  { name: 'Register', href: '/register', current: false },
-]
+
+// const navigation = [
+//   { name: "Home", href: "/", current: true },
+//   { name: "Products", href: "/products", current: false },
+//   { name: "Login", href: "/login", current: false },
+//   { name: "Register", href: "/register", current: false },
+// ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
+  const navigation = useSelector((state) => state.navbar.navigation);
+
   return (
     <Disclosure as="nav" className="bg-Black">
       {({ open }) => (
@@ -32,7 +36,9 @@ export default function Example() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-centre sm:justify-between">
                 <div className="flex-shrink-0 flex items-center">
-                  <h3 className='text-white text-2xl font-bold cursor-pointer'>E-Commerce</h3>
+                  <h3 className="text-white text-2xl font-bold cursor-pointer">
+                    E-Commerce
+                  </h3>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
@@ -41,13 +47,13 @@ export default function Example() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          'text-Orange hover:bg-gray-900 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-semibold no-underline'
+                          "text-Orange hover:bg-gray-900 hover:text-white",
+                          "px-3 py-2 rounded-md text-sm font-semibold no-underline"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
-                      {/* TODO - add redux to manage current  */}
-                      {/* item.current ? 'bg-gray-900 text-Blue' :  */}
+                        {/* TODO - add redux to manage current  */}
+                        {/* item.current ? 'bg-gray-900 text-Blue' :  */}
                         {item.name}
                       </a>
                     ))}
@@ -65,10 +71,12 @@ export default function Example() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>
@@ -78,5 +86,5 @@ export default function Example() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }

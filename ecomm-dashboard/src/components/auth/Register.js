@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { login } from "../../features";
+import { login, hideAuth } from "../../features";
 
 function Register() {
   const [firstname, setFirstname] = useState("");
@@ -23,6 +23,7 @@ function Register() {
       .post("http://localhost:8000/api/register", { name, email, password })
       .then((response) => {
         dispatch(login({ user: response.data }));
+        dispatch(hideAuth());
         navigate("/");
       });
   };
