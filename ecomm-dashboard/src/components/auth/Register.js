@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { login, hideAuth } from "../../features";
 
@@ -12,9 +12,8 @@ function Register() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  const store = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  console.log(store);
+
 
   const register = (e) => {
     e.preventDefault();

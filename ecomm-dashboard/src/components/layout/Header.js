@@ -2,21 +2,12 @@ import { useSelector } from "react-redux";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-
-// const navigation = [
-//   { name: "Home", href: "/", current: true },
-//   { name: "Products", href: "/products", current: false },
-//   { name: "Login", href: "/login", current: false },
-//   { name: "Register", href: "/register", current: false },
-// ];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
   const navigation = useSelector((state) => state.navbar.navigation);
-
   return (
     <Disclosure as="nav" className="bg-Black">
       {({ open }) => (
