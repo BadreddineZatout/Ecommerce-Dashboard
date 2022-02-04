@@ -13,13 +13,11 @@ const navbarSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {
-    hideAuth: (state, action) => {
-      console.log(action);
+    hideAuth: (state) => {
       state.navigation.splice(2, 2);
     },
-    showAuth: (state, action) => {
-      console.log(action);
-      state.value = initialState;
+    showAuth: (state) => {
+      state.navigation = initialState.navigation;
     },
   },
 });

@@ -13,14 +13,23 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./user";
 import navbarReducer from "./navbar";
 
-const persistConfig = {
-  key: "root",
+const persistUserConfig = {
+  key: "user",
   version: 1,
   storage,
 };
-
-const persistedUserReducer = persistReducer(persistConfig, userReducer);
-const persistedNavbarReducer = persistReducer(persistConfig, navbarReducer);
+const persistNavbarConfig = {
+  key: "navbar",
+  version: 1,
+  storage,
+};
+// storage.removeItem("persist:user");
+// storage.removeItem("persist:navbar");
+const persistedUserReducer = persistReducer(persistUserConfig, userReducer);
+const persistedNavbarReducer = persistReducer(
+  persistNavbarConfig,
+  navbarReducer
+);
 
 const store = configureStore({
   reducer: {

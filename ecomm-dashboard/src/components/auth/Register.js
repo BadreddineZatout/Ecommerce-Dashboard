@@ -14,7 +14,6 @@ function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
   const register = (e) => {
     e.preventDefault();
     let name = firstname + " " + lastname;
