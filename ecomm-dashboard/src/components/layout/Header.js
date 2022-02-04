@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 
 import { setCurrent, hideProducts, logout, showAuth } from "../../features";
@@ -13,6 +13,8 @@ function classNames(...classes) {
 export default function Example() {
   const navigation = useSelector((state) => state.navbar.navigation);
   const isLogged = useSelector((state) => state.user.isLogged);
+  const username = useSelector((state) => state.user.user.name)
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -76,13 +78,15 @@ export default function Example() {
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">
                     <div>
-                      <Menu.Button className="bg-Black flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-Black focus:ring-Orange">
+                      <Menu.Button className="bg-Black flex items-center text-sm">
                         <span className="sr-only">Open user menu</span>
-                        <img
+                        <h1 className="text-lg font-bold text-Orange hover:text-white mr-1">{username}</h1>
+                        <ChevronDownIcon className="h-6 w-6 text-Orange hover:text-white mt-1" />
+                        {/* <img
                           className="h-8 w-8 rounded-full"
                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                           alt=""
-                        />
+                        /> */}
                       </Menu.Button>
                     </div>
                     <Transition
