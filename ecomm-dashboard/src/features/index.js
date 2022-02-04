@@ -44,7 +44,7 @@ const store = configureStore({
     }),
 });
 
-export { login, logout } from "./user";
-export { hideAuth, showAuth } from "./navbar";
+export * from "./user";
+export * from "./navbar";
 
 export default store;

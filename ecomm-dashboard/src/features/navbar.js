@@ -19,9 +19,19 @@ const navbarSlice = createSlice({
     showAuth: (state) => {
       state.navigation = initialState.navigation;
     },
+    setCurrent: (state, action) => {
+      state.navigation.map((item) => {
+        if (item.href === action.payload) item.current = true;
+        else {
+          if (item.current) {
+            item.current = false;
+          }
+        }
+      });
+    },
   },
 });
 
-export const { hideAuth, showAuth } = navbarSlice.actions;
+export const { hideAuth, showAuth, setCurrent } = navbarSlice.actions;
 
 export default navbarSlice.reducer;
