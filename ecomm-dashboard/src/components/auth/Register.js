@@ -1,13 +1,20 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+
+import { login } from "../../features";
 
 function Register() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+  const store = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  console.log(store);
 
   const register = (e) => {
     e.preventDefault();
@@ -15,7 +22,8 @@ function Register() {
     axios
       .post("http://localhost:8000/api/register", { name, email, password })
       .then((response) => {
-        navigate('/');
+        dispatch(login({ user: response.data }));
+        navigate("/");
       });
   };
 

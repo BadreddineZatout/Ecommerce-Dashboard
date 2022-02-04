@@ -1,16 +1,19 @@
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+
 import "./App.css";
 import Header from "./components/layout/Header";
-import { BrowserRouter } from "react-router-dom";
 import Web from "./routes/routes";
+import store from "./features";
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <BrowserRouter>
         <Header />
         <Web />
       </BrowserRouter>
-    </div>
+    </Provider>
   );
 }
 
