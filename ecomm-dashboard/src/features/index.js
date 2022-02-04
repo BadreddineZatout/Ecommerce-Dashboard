@@ -23,8 +23,8 @@ const persistNavbarConfig = {
   version: 1,
   storage,
 };
-// storage.removeItem("persist:user");
-// storage.removeItem("persist:navbar");
+storage.removeItem("persist:user");
+storage.removeItem("persist:navbar");
 const persistedUserReducer = persistReducer(persistUserConfig, userReducer);
 const persistedNavbarReducer = persistReducer(
   persistNavbarConfig,

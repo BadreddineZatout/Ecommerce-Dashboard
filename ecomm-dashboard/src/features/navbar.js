@@ -19,6 +19,12 @@ const navbarSlice = createSlice({
     showAuth: (state) => {
       state.navigation = initialState.navigation;
     },
+    hideProducts: (state) => {
+      state.navigation.splice(1, 1);
+    },
+    showProducts: (state) => {
+      state.navigation = initialState.navigation;
+    },
     setCurrent: (state, action) => {
       state.navigation.map((item) => {
         if (item.href === action.payload) item.current = true;
@@ -32,6 +38,7 @@ const navbarSlice = createSlice({
   },
 });
 
-export const { hideAuth, showAuth, setCurrent } = navbarSlice.actions;
+export const { hideAuth, showAuth, hideProducts, showProducts, setCurrent } =
+  navbarSlice.actions;
 
 export default navbarSlice.reducer;

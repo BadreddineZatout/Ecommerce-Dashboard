@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 
-import { login, hideAuth } from "../../features";
+import { login, hideAuth, showProducts } from "../../features";
 
 function Register() {
   const [firstname, setFirstname] = useState("");
@@ -22,6 +22,7 @@ function Register() {
       .then((response) => {
         dispatch(login({ user: response.data }));
         dispatch(hideAuth());
+        dispatch(showProducts());
         navigate("/");
       });
   };

@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { setCurrent } from "../../features";
+
+import { setCurrent, hideProducts } from "../../features";
+import { useEffect } from "react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -9,8 +11,14 @@ function classNames(...classes) {
 
 export default function Example() {
   const navigation = useSelector((state) => state.navbar.navigation);
+  const isLogged = useSelector((state) => state.user.isLogged);
+
   const dispatch = useDispatch();
-  dispatch(setCurrent(window.location.pathname));
+  useEffect(() => {
+    if (!isLogged) dispatch(hideProducts());
+    dispatch(setCurrent(window.location.pathname));
+  }, []);
+
   return (
     <Disclosure as="nav" className="bg-Black">
       {({ open }) => (
@@ -41,7 +49,9 @@ export default function Example() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-Blue' : "text-Orange hover:bg-gray-900 hover:text-white",
+                          item.current
+                            ? "bg-gray-900 text-Blue"
+                            : "text-Orange hover:bg-gray-900 hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-semibold no-underline"
                         )}
                         aria-current={item.current ? "page" : undefined}
