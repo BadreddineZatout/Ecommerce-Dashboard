@@ -20,7 +20,7 @@ const navbarSlice = createSlice({
       state.navigation = initialState.navigation;
     },
     hideProducts: (state) => {
-      state.navigation.splice(1, 1);
+      if(state.navigation.find((item) => item.name === "Products")) state.navigation.splice(1, 1);
     },
     showProducts: (state) => {
       state.navigation = initialState.navigation;

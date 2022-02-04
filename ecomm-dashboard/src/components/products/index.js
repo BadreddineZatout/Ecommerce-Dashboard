@@ -1,7 +1,8 @@
 import React from "react";
+import protectRoute from "../../helpers/protectRoute";
 
 function index() {
   return (<div>Products</div>);
 }
 
-export default index;
+export default protectRoute(index);

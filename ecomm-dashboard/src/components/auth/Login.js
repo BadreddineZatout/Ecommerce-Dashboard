@@ -1,3 +1,4 @@
+import protectRoute from "../../helpers/protectRoute";
 
 function Login() {
   return (
@@ -7,4 +8,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default protectRoute(Login, 'auth');

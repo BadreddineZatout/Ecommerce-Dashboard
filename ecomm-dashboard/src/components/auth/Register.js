@@ -4,8 +4,10 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 
 import { login, hideAuth, showProducts } from "../../features";
+import protectRoute from "../../helpers/protectRoute";
 
 function Register() {
+
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -21,8 +23,8 @@ function Register() {
       .post("http://localhost:8000/api/register", { name, email, password })
       .then((response) => {
         dispatch(login({ user: response.data }));
-        dispatch(hideAuth());
         dispatch(showProducts());
+        dispatch(hideAuth());
         navigate("/");
       });
   };
@@ -95,4 +97,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default protectRoute(Register, 'auth');
