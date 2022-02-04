@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { useNavigate } from "react-router-dom";
 
-import { setCurrent, hideProducts } from "../../features";
+import { setCurrent, hideProducts, logout, showAuth } from "../../features";
 import { Fragment, useEffect } from "react";
 
 function classNames(...classes) {
@@ -12,12 +13,20 @@ function classNames(...classes) {
 export default function Example() {
   const navigation = useSelector((state) => state.navbar.navigation);
   const isLogged = useSelector((state) => state.user.isLogged);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   useEffect(() => {
     if (!isLogged) dispatch(hideProducts());
     dispatch(setCurrent(window.location.pathname));
   }, []);
+
+  const Logout = () => {
+    dispatch(logout());
+    dispatch(showAuth());
+    dispatch(hideProducts());
+    navigate("/");
+  }
 
   return (
     <Disclosure as="nav" className="bg-Black">
@@ -116,6 +125,7 @@ export default function Example() {
                           {({ active }) => (
                             <a
                               href="#"
+                              onClick={() => Logout()}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-Black"
