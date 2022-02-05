@@ -26,8 +26,8 @@ class UserController extends Controller
      *
      * @return void
      */
-    public function login()
+    public function login(Request $request)
     {
-        return 'Login Api';
+        return User::where('email', $request->email)->where('password', hash('md5', $request->password))->first() ?: response("Email or password not correct!", 404);
     }
 }
