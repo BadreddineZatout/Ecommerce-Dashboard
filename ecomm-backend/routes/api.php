@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{id}', [ProductController::class, 'delete'])->name('products.delete');
