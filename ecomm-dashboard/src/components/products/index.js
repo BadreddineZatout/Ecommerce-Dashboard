@@ -1,8 +1,19 @@
-import React from "react";
-import protectRoute from "../../helpers/protectRoute";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-function index() {
-  return (<div>Products</div>);
+import protectRoute from "../../helpers/protectRoute";
+import { backend_url } from "../../Consts";
+
+function Index() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get(backend_url + "products").then((response) => {
+      console.log(response.data);
+      setProducts(response.data);
+    });
+  }, []);
+  return <div>Products</div>;
 }
 
-export default protectRoute(index);
+export default protectRoute(Index);
