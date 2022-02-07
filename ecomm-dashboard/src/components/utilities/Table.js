@@ -1,4 +1,4 @@
-export default function Table({ products }) {
+export default function Table({ products, search }) {
   return (
     <div className="flex flex-col mt-10">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:mx-32">
@@ -8,7 +8,12 @@ export default function Table({ products }) {
               Products
             </h1>
             <div>
-            <input type="text" placeholder="search"  className="mr-2 px-2 py-1 rounded-md ring-2 ring-Blue"/>
+              <input
+                type="text"
+                placeholder="search"
+                className="mr-2 px-2 py-1 rounded-md ring-2 ring-Blue"
+                onChange={(e) => search(e.target.value)}
+              />
               <a
                 href="#"
                 className="border border-2 border-Blue rounded-md py-1 px-3 font-semibold text-Blue hover:bg-Blue hover:text-white hover:font-bold"
@@ -31,7 +36,7 @@ export default function Table({ products }) {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-bold text-Black uppercase tracking-wider"
                   >
-                    Title
+                    Name
                   </th>
                   <th
                     scope="col"
