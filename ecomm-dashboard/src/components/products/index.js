@@ -3,6 +3,7 @@ import axios from "axios";
 
 import protectRoute from "../../helpers/protectRoute";
 import { backend_url } from "../../Consts";
+import Table from "../utilities/Table";
 
 function Index() {
   const [products, setProducts] = useState([]);
@@ -13,7 +14,9 @@ function Index() {
       setProducts(response.data);
     });
   }, []);
-  return <div>Products</div>;
+  return (
+    <Table products={products}/>
+  );
 }
 
 export default protectRoute(Index);
