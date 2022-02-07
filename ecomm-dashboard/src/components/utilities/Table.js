@@ -8,10 +8,10 @@ export default function Table({ products }) {
               Products
             </h1>
             <div>
-            <input type="text" placeholder="search"  className="mr-2 p-1 rounded-md ring-2 ring-Blue"/>
+            <input type="text" placeholder="search"  className="mr-2 px-2 py-1 rounded-md ring-2 ring-Blue"/>
               <a
                 href="#"
-                className="border border-2 border-Orange rounded-md py-2 px-3 font-semibold text-Black hover:bg-Orange hover:text-white hover:font-bold"
+                className="border border-2 border-Blue rounded-md py-1 px-3 font-semibold text-Blue hover:bg-Blue hover:text-white hover:font-bold"
               >
                 Add Product
               </a>
@@ -70,7 +70,7 @@ export default function Table({ products }) {
                       {product.price}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" className="text-Orange hover:font-bold">
+                      <a href="#" className="text-Orange font-bold">
                         Edit
                       </a>
                     </td>
