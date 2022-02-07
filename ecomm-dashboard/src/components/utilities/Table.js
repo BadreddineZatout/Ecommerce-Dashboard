@@ -1,46 +1,47 @@
-const people = [
-  {
-    name: "Jane Cooper",
-    title: "Regional Paradigm Technician",
-    department: "Optimization",
-    role: "Admin",
-    email: "jane.cooper@example.com",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-  },
-  // More people...
-];
-
 export default function Table({ products }) {
   return (
-    <div className="flex flex-col">
-      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+    <div className="flex flex-col mt-36">
+      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:mx-32">
+        <div className="py-2 align-middle inline-block min-w-full  sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            <h1 className="p-4 text-3xl font-semibold text-Black mb-2">
+              Products
+            </h1>
+            <div>
+            <input type="text" placeholder="search"  className="mr-2 p-1 rounded-md ring-2 ring-Blue"/>
+              <a
+                href="#"
+                className="border border-2 border-Orange rounded-md py-2 px-3 font-semibold text-Black hover:bg-Orange hover:text-white hover:font-bold"
+              >
+                Add Product
+              </a>
+            </div>
+          </div>
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-Blue">
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-bold text-Black uppercase tracking-wider"
                   >
                     ID
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-bold text-Black uppercase tracking-wider"
                   >
                     Title
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-bold text-Black uppercase tracking-wider"
                   >
                     Description
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-bold text-Black uppercase tracking-wider"
                   >
                     Price
                   </th>
@@ -58,23 +59,18 @@ export default function Table({ products }) {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-500">
-                        {product.name}
-                      </div>
+                      <div className="text-sm text-Black">{product.name}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-Black">
                         {product.description}
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-Black">
                       {product.price}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a
-                        href="#"
-                        className="text-indigo-600 hover:text-indigo-900"
-                      >
+                      <a href="#" className="text-Orange hover:font-bold">
                         Edit
                       </a>
                     </td>

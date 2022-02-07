@@ -14,9 +14,7 @@ function Index() {
       setProducts(response.data);
     });
   }, []);
-  return (
-    <Table products={products}/>
-  );
+  return <Table products={products} />;
 }
 
 export default protectRoute(Index);
