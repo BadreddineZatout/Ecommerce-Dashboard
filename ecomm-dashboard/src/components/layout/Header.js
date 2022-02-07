@@ -62,7 +62,7 @@ export default function Example() {
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-Orange"
-                            : "text-Orange hover:bg-gray-900 hover:text-white",
+                            : "text-white hover:bg-gray-900 hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-semibold no-underline"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -80,8 +80,8 @@ export default function Example() {
                     <div>
                       <Menu.Button className="bg-Black flex items-center text-sm">
                         <span className="sr-only">Open user menu</span>
-                        <h1 className="text-lg font-bold text-Orange hover:text-white mr-1">{username}</h1>
-                        <ChevronDownIcon className="h-6 w-6 text-Orange hover:text-white mt-1" />
+                        <h1 className="text-lg font-bold text-white hover:text-white mr-1">{username}</h1>
+                        <ChevronDownIcon className="h-6 w-6 text-white hover:text-white mt-1" />
                         {/* <img
                           className="h-8 w-8 rounded-full"
                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
