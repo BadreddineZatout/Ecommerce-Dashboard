@@ -10,16 +10,20 @@ function Index() {
   const [products, setProducts] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
   const [open, setOpen] = useState(false);
-  const [deleteProduct, setDeleteProduct] = useState(null);
+  const [productId, setProductId] = useState(null);
 
   const search = (title) => {
     setSearchTitle(title);
   };
 
-  useEffect(() => {
+  const getProducts = () => {
     axios.get(backend_url + "products").then((response) => {
       setProducts(response.data);
     });
+  };
+
+  useEffect(() => {
+    getProducts();
   }, []);
 
   return (
@@ -32,9 +36,14 @@ function Index() {
         })}
         search={search}
         setOpen={setOpen}
-        setDeleteProduct={setDeleteProduct}
+        setProductId={setProductId}
       />
-      <Delete open={open} setOpen={setOpen} deleteProduct={deleteProduct} />
+      <Delete
+        open={open}
+        setOpen={setOpen}
+        productId={productId}
+        getProducts={getProducts}
+      />
     </div>
   );
 }

@@ -1,10 +1,19 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/outline";
+import axios from "axios";
 
-export default function Delete({ open, setOpen, deleteProduct }) {
+import { backend_url } from "../../Consts";
+
+export default function Delete({ open, setOpen, productId, getProducts }) {
   const cancelButtonRef = useRef(null);
+
+  const deleteProduct = (id) => {
+    axios.delete(backend_url + "products/" + id).then((response) => {
+      getProducts();
+      setOpen(false);
+    });
+  };
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -61,8 +70,8 @@ export default function Delete({ open, setOpen, deleteProduct }) {
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        Are you sure you want to delete this product? It will be permanently removed. This action
-                        cannot be undone.
+                        Are you sure you want to delete this product? It will be
+                        permanently removed. This action cannot be undone.
                       </p>
                     </div>
                   </div>
@@ -72,7 +81,9 @@ export default function Delete({ open, setOpen, deleteProduct }) {
                 <button
                   type="button"
                   className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    deleteProduct(productId);
+                  }}
                 >
                   Delete
                 </button>

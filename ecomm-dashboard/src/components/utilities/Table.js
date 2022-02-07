@@ -1,4 +1,4 @@
-export default function Table({ products, search, setOpen, setDeleteProduct }) {
+export default function Table({ products, search, setOpen, setProductId }) {
   return (
     <div className="flex flex-col mt-10">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:mx-32">
@@ -82,7 +82,7 @@ export default function Table({ products, search, setOpen, setDeleteProduct }) {
                         className="text-Orange font-bold"
                         onClick={() => {
                           setOpen(true);
-                          setDeleteProduct(product.id);
+                          setProductId(product.id);
                         }}
                       >
                         Delete
