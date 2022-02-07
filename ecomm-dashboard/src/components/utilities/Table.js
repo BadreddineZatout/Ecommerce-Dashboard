@@ -1,4 +1,4 @@
-export default function Table({ products, search }) {
+export default function Table({ products, search, setOpen, setDeleteProduct }) {
   return (
     <div className="flex flex-col mt-10">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:mx-32">
@@ -16,7 +16,7 @@ export default function Table({ products, search }) {
               />
               <a
                 href="#"
-                className="border border-2 border-Blue rounded-md py-1 px-3 font-semibold text-Blue hover:bg-Blue hover:text-white hover:font-bold"
+                className="border-2 border-Blue rounded-md py-1 px-3 font-semibold text-Blue hover:bg-Blue hover:text-white hover:font-bold"
               >
                 Add Product
               </a>
@@ -74,10 +74,19 @@ export default function Table({ products, search }) {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-Black">
                       {product.price}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" className="text-Orange font-bold">
+                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium ">
+                      <button className="text-Orange font-bold mr-3">
                         Edit
-                      </a>
+                      </button>
+                      <button
+                        className="text-Orange font-bold"
+                        onClick={() => {
+                          setOpen(true);
+                          setDeleteProduct(product.id);
+                        }}
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 ))}

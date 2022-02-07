@@ -4,10 +4,13 @@ import axios from "axios";
 import protectRoute from "../../helpers/protectRoute";
 import { backend_url } from "../../Consts";
 import Table from "../utilities/Table";
+import Delete from "./delete";
 
 function Index() {
   const [products, setProducts] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
+  const [open, setOpen] = useState(false);
+  const [deleteProduct, setDeleteProduct] = useState(null);
 
   const search = (title) => {
     setSearchTitle(title);
@@ -20,12 +23,19 @@ function Index() {
   }, []);
 
   return (
-    <Table
-      products={products.filter((product) => {
-        return product.name.toLowerCase().includes(searchTitle.toLocaleLowerCase());
-      })}
-      search={search}
-    />
+    <div>
+      <Table
+        products={products.filter((product) => {
+          return product.name
+            .toLowerCase()
+            .includes(searchTitle.toLocaleLowerCase());
+        })}
+        search={search}
+        setOpen={setOpen}
+        setDeleteProduct={setDeleteProduct}
+      />
+      <Delete open={open} setOpen={setOpen} deleteProduct={deleteProduct} />
+    </div>
   );
 }
 
