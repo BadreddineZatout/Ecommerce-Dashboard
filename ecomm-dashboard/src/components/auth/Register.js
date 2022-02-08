@@ -7,7 +7,6 @@ import { login, hideAuth, showProducts } from "../../features";
 import protectRoute from "../../helpers/protectRoute";
 
 function Register() {
-
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -30,11 +29,11 @@ function Register() {
   };
 
   return (
-    <div className="my-5 w-full md:mt-20 md:w-1/2 mx-auto shadow-md border border-Black">
+    <div className="my-5 mx-auto w-full border border-Black shadow-md md:mt-20 md:w-1/2">
       <h1 className="ml-4 mt-4 text-4xl font-semibold text-Black">Register</h1>
       <form onSubmit={(e) => register(e)} method="POST">
         <div className="overflow-hidden sm:rounded-md">
-          <div className="px-4 py-5 bg-white sm:p-6">
+          <div className="bg-white px-4 py-5 sm:p-6">
             <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-4">
                 <input
@@ -43,7 +42,7 @@ function Register() {
                   id="first-name"
                   autoComplete="given-name"
                   placeholder="First name"
-                  className="mt-1  block w-full border border-Blue shadow-sm sm:text-sm p-2 rounded-md"
+                  className="mt-1  block w-full rounded-md border border-Blue p-2 shadow-sm sm:text-sm"
                   onChange={(e) => setFirstname(e.target.value)}
                 />
               </div>
@@ -55,7 +54,7 @@ function Register() {
                   id="last-name"
                   autoComplete="family-name"
                   placeholder="Last name"
-                  className="mt-1  block w-full border border-Blue shadow-sm sm:text-sm p-2 rounded-md"
+                  className="mt-1  block w-full rounded-md border border-Blue p-2 shadow-sm sm:text-sm"
                   onChange={(e) => setLastname(e.target.value)}
                 />
               </div>
@@ -67,7 +66,7 @@ function Register() {
                   id="email-address"
                   autoComplete="email"
                   placeholder="Email"
-                  className="mt-1 block w-full border border-Blue shadow-sm sm:text-sm p-2 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-Blue p-2 shadow-sm sm:text-sm"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -77,16 +76,16 @@ function Register() {
                   name="password"
                   id="password"
                   placeholder="Password"
-                  className="mt-1 block w-full border border-Blue shadow-sm sm:text-sm p-2 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-Blue p-2 shadow-sm sm:text-sm"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
           </div>
-          <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+          <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
             <button
               type="submit"
-              className="inline-flex justify-center py-2 px-4 border-Blue border-2 shadow-sm text-sm font-medium rounded-md text-Blue bg-white hover:bg-Blue hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-Blue"
+              className="inline-flex justify-center rounded-md border-2 border-Blue bg-white py-2 px-4 text-sm font-medium text-Blue shadow-sm hover:bg-Blue hover:text-white focus:outline-none focus:ring-2 focus:ring-Blue focus:ring-offset-2"
             >
               Save
             </button>
@@ -97,4 +96,4 @@ function Register() {
   );
 }
 
-export default protectRoute(Register, 'auth');
+export default protectRoute(Register, "auth");

@@ -30,11 +30,11 @@ function Login() {
   };
 
   return (
-    <div className="my-5 w-full md:mt-20 md:w-1/2 mx-auto shadow-md border border-Black">
+    <div className="my-5 mx-auto w-full border border-Black shadow-md md:mt-20 md:w-1/2">
       <h1 className="ml-4 mt-4 text-4xl font-semibold text-Black">Login</h1>
       <form onSubmit={(e) => Login(e)} method="POST">
         <div className="overflow-hidden sm:rounded-md">
-          <div className="px-4 py-5 bg-white sm:p-6">
+          <div className="bg-white px-4 py-5 sm:p-6">
             <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-4">
                 <input
@@ -43,7 +43,7 @@ function Login() {
                   id="email-address"
                   autoComplete="email"
                   placeholder="Email"
-                  className="mt-1 block w-full border border-Blue shadow-sm sm:text-sm p-2 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-Blue p-2 shadow-sm sm:text-sm"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -53,21 +53,21 @@ function Login() {
                   name="password"
                   id="password"
                   placeholder="Password"
-                  className="mt-1 block w-full border border-Blue shadow-sm sm:text-sm p-2 rounded-md"
+                  className="mt-1 block w-full rounded-md border border-Blue p-2 shadow-sm sm:text-sm"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
             {error && (
-              <div className="col-span-6 sm:col-span-4 mt-3">
-                <p className="font-semibold text-sm text-red-500">{error}</p>
+              <div className="col-span-6 mt-3 sm:col-span-4">
+                <p className="text-sm font-semibold text-red-500">{error}</p>
               </div>
             )}
           </div>
-          <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+          <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
             <button
               type="submit"
-              className="inline-flex justify-center py-2 px-4 border-Blue border-2 shadow-sm text-sm font-medium rounded-md text-Blue bg-white hover:bg-Blue hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-Blue"
+              className="inline-flex justify-center rounded-md border-2 border-Blue bg-white py-2 px-4 text-sm font-medium text-Blue shadow-sm hover:bg-Blue hover:text-white focus:outline-none focus:ring-2 focus:ring-Blue focus:ring-offset-2"
             >
               Login
             </button>

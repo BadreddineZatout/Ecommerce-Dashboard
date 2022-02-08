@@ -13,7 +13,7 @@ function classNames(...classes) {
 export default function Example() {
   const navigation = useSelector((state) => state.navbar.navigation);
   const isLogged = useSelector((state) => state.user.isLogged);
-  const username = useSelector((state) => state.user.user.name)
+  const username = useSelector((state) => state.user.user.name);
 
   const navigate = useNavigate();
 
@@ -28,17 +28,17 @@ export default function Example() {
     dispatch(showAuth());
     dispatch(hideProducts());
     navigate("/");
-  }
+  };
 
   return (
     <Disclosure as="nav" className="bg-Black shadow-2xl">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div className="relative flex items-center justify-between h-16">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -47,13 +47,13 @@ export default function Example() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex-1 flex items-center justify-center sm:items-centre sm:justify-between">
-                <div className="flex-shrink-0 flex items-center">
-                  <h3 className="text-white text-2xl font-bold cursor-pointer">
+              <div className="sm:items-centre flex flex-1 items-center justify-center sm:justify-between">
+                <div className="flex flex-shrink-0 items-center">
+                  <h3 className="cursor-pointer text-2xl font-bold text-white">
                     E-Commerce
                   </h3>
                 </div>
-                <div className="hidden sm:block sm:ml-6">
+                <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
@@ -63,7 +63,7 @@ export default function Example() {
                           item.current
                             ? "bg-gray-900 text-Orange"
                             : "text-white hover:bg-gray-900 hover:text-white",
-                          "px-3 py-2 rounded-md text-sm font-semibold no-underline"
+                          "rounded-md px-3 py-2 text-sm font-semibold no-underline"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -76,12 +76,14 @@ export default function Example() {
               {isLogged && (
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                   {/* Profile dropdown */}
-                  <Menu as="div" className="ml-3 relative">
+                  <Menu as="div" className="relative ml-3">
                     <div>
-                      <Menu.Button className="bg-Black flex items-center text-sm">
+                      <Menu.Button className="flex items-center bg-Black text-sm">
                         <span className="sr-only">Open user menu</span>
-                        <h1 className="text-lg font-bold text-white hover:text-white mr-1">{username}</h1>
-                        <ChevronDownIcon className="h-6 w-6 text-white hover:text-white mt-1" />
+                        <h1 className="mr-1 text-lg font-bold text-white hover:text-white">
+                          {username}
+                        </h1>
+                        <ChevronDownIcon className="mt-1 h-6 w-6 text-white hover:text-white" />
                         {/* <img
                           className="h-8 w-8 rounded-full"
                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -98,7 +100,7 @@ export default function Example() {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
                           {({ active }) => (
                             <a
@@ -148,7 +150,7 @@ export default function Example() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="space-y-1 px-2 pt-2 pb-3">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
@@ -158,7 +160,7 @@ export default function Example() {
                     item.current
                       ? "bg-gray-900 text-white"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block px-3 py-2 rounded-md text-base font-medium"
+                    "block rounded-md px-3 py-2 text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
