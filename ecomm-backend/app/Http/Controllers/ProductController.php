@@ -38,7 +38,8 @@ class ProductController extends Controller
             'user_id' => $request->user_id
         ]);
         ImageUpload::dispatch($product, $request->image);
-        return response("Product created", 201);
+        return redirect("http://localhost:3000/products");
+        // return response("Product created", 201);
     }
 
     /**

@@ -1,4 +1,10 @@
-export default function Table({ products, search, setOpen, setProductId }) {
+export default function Table({
+  products,
+  search,
+  setOpenCreate,
+  setOpenDelete,
+  setProductId,
+}) {
   return (
     <div className="mt-10 flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:mx-32">
@@ -14,12 +20,12 @@ export default function Table({ products, search, setOpen, setProductId }) {
                 className="mr-2 rounded-md px-2 py-1 ring-2 ring-Blue"
                 onChange={(e) => search(e.target.value)}
               />
-              <a
-                href="#"
+              <button
+                onClick={() => setOpenCreate(true)}
                 className="rounded-md border-2 border-Blue py-1 px-3 font-semibold text-Blue hover:bg-Blue hover:font-bold hover:text-white"
               >
                 Add Product
-              </a>
+              </button>
             </div>
           </div>
           <div className="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
@@ -81,7 +87,7 @@ export default function Table({ products, search, setOpen, setProductId }) {
                       <button
                         className="font-bold text-Orange"
                         onClick={() => {
-                          setOpen(true);
+                          setOpenDelete(true);
                           setProductId(product.id);
                         }}
                       >

@@ -5,11 +5,13 @@ import protectRoute from "../../helpers/protectRoute";
 import { backend_url } from "../../Consts";
 import Table from "../utilities/Table";
 import Delete from "./delete";
+import Create from "./create";
 
 function Index() {
   const [products, setProducts] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
-  const [open, setOpen] = useState(false);
+  const [openCreate, setOpenCreate] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
   const [productId, setProductId] = useState(null);
 
   const search = (title) => {
@@ -35,12 +37,18 @@ function Index() {
             .includes(searchTitle.toLocaleLowerCase());
         })}
         search={search}
-        setOpen={setOpen}
+        setOpenCreate={setOpenCreate}
+        setOpenDelete={setOpenDelete}
         setProductId={setProductId}
       />
+      <Create
+        open={openCreate}
+        setOpen={setOpenCreate}
+        getProducts={getProducts}
+      />
       <Delete
-        open={open}
-        setOpen={setOpen}
+        open={openDelete}
+        setOpen={setOpenDelete}
         productId={productId}
         getProducts={getProducts}
       />
