@@ -8,3 +8,6 @@
 .btn {
   @apply cursor-pointer rounded-full py-2 px-3 text-xs font-bold uppercase tracking-wider;
 }
+.banner-btn {
+  @apply cursor-pointer py-2 px-3 text-xs font-bold uppercase tracking-wider;
+}
