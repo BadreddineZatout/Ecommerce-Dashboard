@@ -13,7 +13,21 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
+    {
+        $products = Product::with("user")->get();
+        $products->map(function ($item) {
+            $item->getMedia();
+        });
+        return $products;;
+    }
+
+    /**
+     * Reeturn a listing of the resource by user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getUserProducts($id)
     {
         $products = Product::where('user_id', $id)->get();
         $products->map(function ($item) {
