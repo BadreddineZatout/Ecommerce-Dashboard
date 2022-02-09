@@ -17,7 +17,7 @@ function Home() {
     <div>
       <div>
         <div className="absolute mt-32 ml-5">
-          <h1 className="mb-10 text-7xl text-white">Welcome To Our Shop</h1>
+          <h1 className="mb-10 text-7xl text-white">Welcome To Badi Shop</h1>
           <button className="banner-btn absolute ml-5 bg-Orange bg-opacity-90 text-Black hover:bg-opacity-100">
             <a href="#products" className="text-lg">
               Check our products

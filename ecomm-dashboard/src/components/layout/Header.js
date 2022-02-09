@@ -50,7 +50,7 @@ export default function Example() {
               <div className="sm:items-centre flex flex-1 items-center justify-center sm:justify-between">
                 <div className="flex flex-shrink-0 items-center">
                   <h3 className="cursor-pointer text-2xl font-bold text-white">
-                    E-Commerce
+                    Badi Shop
                   </h3>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
