@@ -51,7 +51,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        if ($request->has('image')) {
+            ImageUpload::dispatch($product, $request->image);
+        }
+        return redirect("http://localhost:3000/products");
     }
 
     /**

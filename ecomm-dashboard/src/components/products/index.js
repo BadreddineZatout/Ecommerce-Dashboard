@@ -28,6 +28,7 @@ function Index() {
   };
 
   const getProduct = (id) => {
+    console.log(products[0]);
     setProduct(products.filter((item) => item.id === id)[0]);
   };
 

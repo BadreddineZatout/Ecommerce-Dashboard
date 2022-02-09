@@ -26,6 +26,7 @@ class SaveImageWithMedia
      */
     public function handle(ImageUpload $event)
     {
+        $event->product->clearMediaCollection('products');
         $event->product->addMedia($event->image)->toMediaCollection('products');
     }
 }

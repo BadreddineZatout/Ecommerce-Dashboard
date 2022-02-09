@@ -51,7 +51,7 @@ export default function Edit({ open, setOpen, product }) {
                 </Dialog.Title>
                 <div className="my-5 mx-auto w-full">
                   <form
-                    action={backend_url + "products"}
+                    action={backend_url + `products/${product.id}`}
                     method="POST"
                     encType="multipart/form-data"
                   >
@@ -101,7 +101,7 @@ export default function Edit({ open, setOpen, product }) {
                             <img
                               src={
                                 backend_public_url +
-                                `${product.id}/${product.media[0].file_name}`
+                                `${product.media[0].id}/${product.media[0].file_name}`
                               }
                               alt={product.media[0].file_name}
                               className="h-52 w-full"
