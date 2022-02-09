@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  #FEAE47 - orange
-  #56BDE6 - blue
-  #FFFFFF - white
-  #434852 - black
- */
+.card {
+  @apply relative transform overflow-hidden rounded bg-white shadow-md transition duration-300 ease-in hover:scale-110 hover:border hover:border-Orange hover:shadow-lg;
+}
+.btn {
+  @apply cursor-pointer rounded-full py-2 px-3 text-xs font-bold uppercase tracking-wider;
+}
