@@ -2,8 +2,10 @@ export default function Table({
   products,
   search,
   setOpenCreate,
+  setOpenEdit,
   setOpenDelete,
   setProductId,
+  getProduct,
 }) {
   return (
     <div className="mt-10 flex flex-col">
@@ -81,7 +83,13 @@ export default function Table({
                       {product.price}
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium ">
-                      <button className="mr-3 font-bold text-Orange">
+                      <button
+                        className="mr-3 font-bold text-Orange"
+                        onClick={() => {
+                          getProduct(product.id);
+                          setOpenEdit(true);
+                        }}
+                      >
                         Edit
                       </button>
                       <button

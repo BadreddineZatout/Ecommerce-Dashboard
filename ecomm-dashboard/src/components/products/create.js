@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../Consts";
 
-export default function Create({ open, setOpen, getProducts }) {
+export default function Create({ open, setOpen }) {
   const user_id = useSelector((state) => state.user.user.id);
   return (
     <>
