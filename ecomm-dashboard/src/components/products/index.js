@@ -7,8 +7,10 @@ import Table from "../utilities/Table";
 import Delete from "./delete";
 import Create from "./create";
 import Edit from "./edit";
+import { useSelector } from "react-redux";
 
 function Index() {
+  const user_id = useSelector((state) => state.user.user.id);
   const [products, setProducts] = useState([]);
   const [productId, setProductId] = useState(null);
   const [product, setProduct] = useState(null);
@@ -22,7 +24,7 @@ function Index() {
   };
 
   const getProducts = () => {
-    axios.get(backend_url + "products").then((response) => {
+    axios.get(backend_url + `products/${user_id}`).then((response) => {
       setProducts(response.data);
     });
   };
