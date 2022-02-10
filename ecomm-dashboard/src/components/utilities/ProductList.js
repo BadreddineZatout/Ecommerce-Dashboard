@@ -10,7 +10,7 @@ function ProductList({ products, setPage, length }) {
         dataLength={products.length}
         next={() => setPage((prevPage) => prevPage + 4)}
         hasMore={products.length < length}
-        className="mt-8 grid gap-10 pt-10 lg:grid-cols-4"
+        className="mt-8 grid gap-10 p-10 lg:grid-cols-4"
       >
         {products.map((product) => (
           <div className="card cursor-pointer" key={product.id}>
