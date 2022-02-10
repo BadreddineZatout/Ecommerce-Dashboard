@@ -66,15 +66,6 @@ function Home() {
             length={products.length}
           />
         )}
-        {/* <div className="mt-12 flex justify-center">
-          <div
-            id="load-more"
-            offset="3"
-            className="btn transform bg-Orange text-Black transition duration-300 ease-out hover:scale-125 hover:bg-opacity-50 hover:shadow-inner"
-          >
-            Load more
-          </div>
-        </div> */}
       </div>
     </div>
   );

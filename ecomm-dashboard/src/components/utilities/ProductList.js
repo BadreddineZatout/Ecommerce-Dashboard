@@ -31,7 +31,14 @@ function ProductList({ products, setPage, length }) {
           </div>
         ))}
       </InfiniteScroll>
-      {products.length === length && (
+      {length === 0 && (
+        <div className="mt-10 flex w-full justify-center">
+          <p className="text-2xl text-Black">
+            <b>Sorry :'( No products yet</b>
+          </p>
+        </div>
+      )}
+      {products.length === length && length !== 0 && (
         <div className="mt-10 flex w-full justify-center">
           <p className="text-2xl text-Black">
             <b>Yay! You have seen it all</b>
