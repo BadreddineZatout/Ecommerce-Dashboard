@@ -6,6 +6,19 @@ import ProductList from "./utilities/ProductList";
 
 function Home() {
   const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(4);
+  const [searchTitle, setSearchTitle] = useState("");
+
+  const search = (title) => {
+    setSearchTitle(title);
+  };
+
+  const goToTarget = (e) => {
+    e.preventDefault();
+    document.querySelector(e.target.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     axios
@@ -19,7 +32,11 @@ function Home() {
         <div className="absolute mt-32 ml-5">
           <h1 className="mb-10 text-7xl text-white">Welcome To Badi Shop</h1>
           <button className="banner-btn absolute ml-5 bg-Orange bg-opacity-90 text-Black hover:bg-opacity-100">
-            <a href="#products" className="text-lg">
+            <a
+              href="#products"
+              className="text-lg"
+              onClick={(e) => goToTarget(e)}
+            >
               Check our products
             </a>
           </button>
@@ -33,10 +50,23 @@ function Home() {
             type="text"
             placeholder="search"
             className="mr-2 rounded-md px-2 py-1 ring-2 ring-Blue"
+            onChange={(e) => search(e.target.value)}
           />
         </div>
-        <ProductList products={products} />
-        <div className="mt-12 flex justify-center">
+        {products && (
+          <ProductList
+            products={products
+              .filter((product) => {
+                return product.name
+                  .toLowerCase()
+                  .includes(searchTitle.toLocaleLowerCase());
+              })
+              .slice(0, page)}
+            setPage={setPage}
+            length={products.length}
+          />
+        )}
+        {/* <div className="mt-12 flex justify-center">
           <div
             id="load-more"
             offset="3"
@@ -44,7 +74,7 @@ function Home() {
           >
             Load more
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
