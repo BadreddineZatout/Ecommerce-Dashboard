@@ -19,7 +19,7 @@ class ProductController extends Controller
         $products->map(function ($item) {
             $item->getMedia();
         });
-        return $products;;
+        return $products;
     }
 
     /**

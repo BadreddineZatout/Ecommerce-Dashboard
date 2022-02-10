@@ -1,6 +1,6 @@
 <?php
 
-use function Pest\Laravel\post;
+/* use function Pest\Laravel\post;
 
 it('User can register', function () {
     $user = post(route('user.register'), [
@@ -31,3 +31,4 @@ it('User can login', function () {
     $this->assertEquals($user["email"], "zaki@test.dz");
     $this->assertEquals($user["phone"], "0657207206");
 });
+ */
