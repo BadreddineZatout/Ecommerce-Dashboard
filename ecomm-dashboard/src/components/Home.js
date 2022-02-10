@@ -3,11 +3,14 @@ import axios from "axios";
 
 import { backend_url } from "../Consts";
 import ProductList from "./utilities/ProductList";
+import Show from "./products/show";
 
 function Home() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(4);
   const [searchTitle, setSearchTitle] = useState("");
+  const [product, setProduct] = useState(null);
+  const [openShow, setOpenShow] = useState(false);
 
   const search = (title) => {
     setSearchTitle(title);
@@ -64,7 +67,12 @@ function Home() {
               .slice(0, page)}
             setPage={setPage}
             length={products.length}
+            setProduct={setProduct}
+            setOpenShow={setOpenShow}
           />
+        )}
+        {product && (
+          <Show open={openShow} setOpen={setOpenShow} product={product} />
         )}
       </div>
     </div>

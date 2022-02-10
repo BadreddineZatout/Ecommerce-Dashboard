@@ -10,6 +10,7 @@ function Register() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -19,7 +20,12 @@ function Register() {
     e.preventDefault();
     let name = firstname + " " + lastname;
     axios
-      .post("http://localhost:8000/api/register", { name, email, password })
+      .post("http://localhost:8000/api/register", {
+        name,
+        email,
+        phone,
+        password,
+      })
       .then((response) => {
         dispatch(login({ user: response.data }));
         dispatch(showProducts());
@@ -68,6 +74,17 @@ function Register() {
                   placeholder="Email"
                   className="mt-1 block w-full rounded-md border border-Blue p-2 shadow-sm sm:text-sm"
                   onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div className="col-span-6 sm:col-span-4">
+                <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  autoComplete="phone"
+                  placeholder="Phone Number"
+                  className="mt-1 block w-full rounded-md border border-Blue p-2 shadow-sm sm:text-sm"
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
               <div className="col-span-6 sm:col-span-4">

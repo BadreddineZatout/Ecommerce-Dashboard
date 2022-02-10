@@ -3,7 +3,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import { backend_public_url } from "../../Consts";
 
-function ProductList({ products, setPage, length }) {
+function ProductList({ products, setPage, length, setOpenShow, setProduct }) {
   return (
     <>
       <InfiniteScroll
@@ -13,7 +13,14 @@ function ProductList({ products, setPage, length }) {
         className="mt-8 grid gap-10 p-10 lg:grid-cols-4"
       >
         {products.map((product) => (
-          <div className="card cursor-pointer" key={product.id}>
+          <div
+            className="card cursor-pointer"
+            key={product.id}
+            onClick={() => {
+              setProduct(product);
+              setOpenShow(true);
+            }}
+          >
             <img
               className="h-32 w-full object-cover sm:h-48"
               src={
