@@ -51,9 +51,8 @@ class ProductController extends Controller
             'price' => $request->price,
             'user_id' => $request->user_id
         ]);
-        ImageUpload::dispatch($product, $request->image);
+        if ($request->has("image")) ImageUpload::dispatch($product, $request->image);
         return redirect("http://localhost:3000/products");
-        // return response("Product created", 201);
     }
 
     /**
