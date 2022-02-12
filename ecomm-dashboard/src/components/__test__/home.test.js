@@ -22,14 +22,16 @@ const MockHome = () => {
   );
 };
 
-it("renders Home page before getting products", async () => {
-  render(<MockHome />);
-  let checkProducts = await screen.findByText("Check our products");
-  expect(checkProducts).toBeInTheDocument();
-  let noProducts = await screen.findByText("Sorry :'( No products yet");
-  expect(noProducts).toBeInTheDocument();
-  let productsList = await screen.findByTestId("productsList");
-  expect(productsList).toContainHTML("div");
-  let endOfProducts = await screen.findByText("Yay! You have seen it all");
-  expect(endOfProducts).toBeInTheDocument();
+describe("Home", () => {
+  it("renders Home page with products", async () => {
+    render(<MockHome />);
+    let checkProducts = await screen.findByText("Check our products");
+    expect(checkProducts).toBeInTheDocument();
+    let noProducts = await screen.findByText("Sorry :'( No products yet");
+    expect(noProducts).toBeInTheDocument();
+    let productsList = await screen.findByTestId("productsList");
+    expect(productsList).toContainHTML("div");
+    let endOfProducts = await screen.findByText("Yay! You have seen it all");
+    expect(endOfProducts).toBeInTheDocument();
+  });
 });
