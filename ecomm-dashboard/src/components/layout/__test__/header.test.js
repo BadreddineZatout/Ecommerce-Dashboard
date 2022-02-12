@@ -1,4 +1,4 @@
-import { getAllByRole, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
@@ -10,8 +10,8 @@ import store, { hideAuth, login, showProducts } from "../../../features";
 
 const persistor = persistStore(store);
 
-it("renders header when user is not logged", () => {
-  render(
+const MockHeader = () => {
+  return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
@@ -20,6 +20,10 @@ it("renders header when user is not logged", () => {
       </PersistGate>
     </Provider>
   );
+};
+
+it("renders header when user is not logged", () => {
+  render(<MockHeader />);
   const home = screen.getByText("Home");
   const login = screen.getByText("Login");
   const logout = screen.getByText("Register");

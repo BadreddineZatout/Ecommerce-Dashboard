@@ -57,5 +57,3 @@ function ProductList({ products, setPage, length, setOpenShow, setProduct }) {
 }
 
 export default ProductList;
-{
-}

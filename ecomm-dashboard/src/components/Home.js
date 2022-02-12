@@ -56,21 +56,23 @@ function Home() {
             onChange={(e) => search(e.target.value)}
           />
         </div>
-        {products && (
-          <ProductList
-            products={products
-              .filter((product) => {
-                return product.name
-                  .toLowerCase()
-                  .includes(searchTitle.toLocaleLowerCase());
-              })
-              .slice(0, page)}
-            setPage={setPage}
-            length={products.length}
-            setProduct={setProduct}
-            setOpenShow={setOpenShow}
-          />
-        )}
+        <div data-testid="productsList">
+          {products && (
+            <ProductList
+              products={products
+                .filter((product) => {
+                  return product.name
+                    .toLowerCase()
+                    .includes(searchTitle.toLocaleLowerCase());
+                })
+                .slice(0, page)}
+              setPage={setPage}
+              length={products.length}
+              setProduct={setProduct}
+              setOpenShow={setOpenShow}
+            />
+          )}
+        </div>
         {product && (
           <Show open={openShow} setOpen={setOpenShow} product={product} />
         )}
