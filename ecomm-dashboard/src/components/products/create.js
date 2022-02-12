@@ -7,7 +7,7 @@ export default function Create({ open, setOpen }) {
   const user_id = useSelector((state) => state.user.user.id);
   return (
     <>
-      <Transition appear show={open} as={Fragment}>
+      <Transition appear show={open} as={Fragment} data-testid="createProduct">
         <Dialog
           as="div"
           className="fixed inset-0 z-10 overflow-y-auto"
