@@ -14,11 +14,12 @@ function ProductList({ products, setPage, length, setOpenShow, setProduct }) {
       >
         {products.map((product) => (
           <div
+            data-testid="productsList"
             className="card cursor-pointer"
             key={product.id}
             onClick={() => {
               setProduct(product);
-              setOpenShow(true);
+              setOpenShow(false);
             }}
           >
             <img

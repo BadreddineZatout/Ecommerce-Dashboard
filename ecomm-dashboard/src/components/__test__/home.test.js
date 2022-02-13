@@ -29,8 +29,8 @@ describe("Home", () => {
     expect(checkProducts).toBeInTheDocument();
     let noProducts = await screen.findByText("Sorry :'( No products yet");
     expect(noProducts).toBeInTheDocument();
-    let productsList = await screen.findByTestId("productsList");
-    expect(productsList).toContainHTML("div");
+    let productsList = await screen.findAllByTestId("productsList");
+    expect(productsList.length).toBe(2);
     let endOfProducts = await screen.findByText("Yay! You have seen it all");
     expect(endOfProducts).toBeInTheDocument();
   });

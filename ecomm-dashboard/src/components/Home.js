@@ -56,7 +56,7 @@ function Home() {
             onChange={(e) => search(e.target.value)}
           />
         </div>
-        <div data-testid="productsList">
+        <div>
           {products && (
             <ProductList
               products={products
